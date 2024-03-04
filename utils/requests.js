@@ -1,8 +1,8 @@
 const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null;
 
+//fetch all property
 async function fetchProperties() {
   try {
-    //handle situation when no domain avaliable
     if (!apiDomain) {
       return [];
     }
@@ -19,4 +19,23 @@ async function fetchProperties() {
   }
 }
 
-export { fetchProperties };
+//Fetch single property
+async function fetchProperty(id) {
+  try {
+    if (!apiDomain) {
+      return null;
+    }
+
+    const response = await fetch(`${apiDomain}/properties/${id}`);
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
+export { fetchProperties, fetchProperty };
