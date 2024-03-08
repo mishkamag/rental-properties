@@ -75,15 +75,12 @@ const PropertyAddForm = () => {
 
   const handleImageChange = (e) => {
     const { files } = e.target;
-
     // Clone images array which i declare in useState
     const updatedImages = [...fields.images];
-
     // Add new files to the array
     for (const file of files) {
       updatedImages.push(file);
     }
-
     // Update state with array of images
     setFields((prevFields) => ({
       ...prevFields,
@@ -92,7 +89,7 @@ const PropertyAddForm = () => {
   };
 
   return (
-    <form>
+    <form action="/api/properties" method="POST" encType="multipart/form-data">
       <h2 className="text-3xl text-center font-semibold mb-6">Add Property</h2>
 
       <div className="mb-4">
@@ -486,7 +483,7 @@ const PropertyAddForm = () => {
         <input
           type="text"
           id="seller_name"
-          name="seller_info.name."
+          name="seller_info.name"
           className="border rounded w-full py-2 px-3"
           placeholder="Name"
           value={fields.seller_info.name}
@@ -540,6 +537,7 @@ const PropertyAddForm = () => {
           className="border rounded w-full py-2 px-3"
           accept="image/*"
           multiple
+          required
           onChange={handleImageChange}
         />
       </div>
