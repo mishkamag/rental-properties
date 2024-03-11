@@ -11,21 +11,16 @@ const PropertyImages = ({ images }) => {
             className="object-cover mx-auto rounded-xl"
             width={0}
             height={0}
-            // layout="responsive"
-            // sizes="100vw"
-            // priority={true}
-            // maxWidth={600} // Set maximum width here
-            // maxHeight={400} // Set maximum height here
           />
         ) : (
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             {images.map((image, index) => (
               <div
                 key={index}
                 className={`
                ${
                  images.length === 3 && index === 2
-                   ? "col-span-2"
+                   ? "col-span-1"
                    : "col-span-1"
                }`}
               >
@@ -34,13 +29,9 @@ const PropertyImages = ({ images }) => {
                     src={image}
                     alt=""
                     className="object-cover w-full rounded-xl"
-                    width={1110}
-                    height={120}
-                    // layout="responsive"
-                    // sizes="100vw"
-                    // priority={true}
-                    // maxWidth={300} // Set maximum width here
-                    // maxHeight={200} // Set maximum height here
+                    width={0}
+                    height={0}
+                    sizes="100vw"
                   />
                 }
               </div>
