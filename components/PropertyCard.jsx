@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import {
   FaBed,
@@ -28,6 +28,7 @@ const PropertyCard = ({ property }) => {
           alt=""
           layout="fill"
           objectFit="cover"
+          priority={true}
         />
       </div>
       <div className="p-4">
